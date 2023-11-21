@@ -1,0 +1,181 @@
+networks:
+  microservicenet:
+    external: true
+    name: microservicenet
+services:
+  tiendaservicios.api.autor:
+    build:
+      context: C:\Users\mmois\source\repos\BookStore\TiendaServicios
+      dockerfile: TiendaServicios.Api.Autor/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: TiendaServicios.Api.Autor
+      target: base
+    container_name: TiendaServicios.Api.Autor
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: tiendaserviciosapiautor:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/netcoreapp3.1/TiendaServicios.Api.Autor.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      microservicenet: {}
+    ports:
+    - published: 6104
+      target: 80
+    tty: true
+    volumes:
+    - C:\Users\mmois\source\repos\BookStore\TiendaServicios\TiendaServicios.Api.Autor:/app:rw
+    - C:\Users\mmois\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\mmois\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\mmois\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\mmois\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\mmois\source\repos\BookStore\TiendaServicios:/src:rw
+  tiendaservicios.api.carritocompra:
+    build:
+      context: C:\Users\mmois\source\repos\BookStore\TiendaServicios
+      dockerfile: TiendaServicios.Api.CarritoCompra/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: TiendaServicios.Api.CarritoCompra
+      target: base
+    container_name: TiendaServicios.Api.CarritoCompra
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: tiendaserviciosapicarritocompra:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/netcoreapp3.1/TiendaServicios.Api.CarritoCompra.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      microservicenet: {}
+    ports:
+    - published: 6105
+      target: 80
+    tty: true
+    volumes:
+    - C:\Users\mmois\source\repos\BookStore\TiendaServicios\TiendaServicios.Api.CarritoCompra:/app:rw
+    - C:\Users\mmois\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\mmois\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\mmois\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\mmois\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\mmois\source\repos\BookStore\TiendaServicios:/src:rw
+  tiendaservicios.api.libreria:
+    build:
+      context: C:\Users\mmois\source\repos\BookStore\TiendaServicios
+      dockerfile: TiendaServicios.Api.Libreria/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: TiendaServicios.Api.Libreria
+      target: base
+    container_name: TiendaServicios.Api.Libreria
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: tiendaserviciosapilibreria:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/netcoreapp3.1/TiendaServicios.Api.Libreria.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      microservicenet: {}
+    ports:
+    - published: 6106
+      target: 80
+    tty: true
+    volumes:
+    - C:\Users\mmois\source\repos\BookStore\TiendaServicios\TiendaServicios.Api.Libreria:/app:rw
+    - C:\Users\mmois\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\mmois\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\mmois\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\mmois\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\mmois\source\repos\BookStore\TiendaServicios:/src:rw
+  tiendaservicios.api.login:
+    build:
+      context: C:\Users\mmois\source\repos\BookStore\TiendaServicios
+      dockerfile: TiendaServicios.Api.Login/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: TiendaServicios.Api.Login
+      target: base
+    container_name: TiendaServicios.Api.Login
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: tiendaserviciosapilogin:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/netcoreapp3.1/TiendaServicios.Api.Login.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      microservicenet: {}
+    ports:
+    - published: 6107
+      target: 80
+    tty: true
+    volumes:
+    - C:\Users\mmois\source\repos\BookStore\TiendaServicios\TiendaServicios.Api.Login:/app:rw
+    - C:\Users\mmois\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\mmois\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\mmois\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\mmois\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\mmois\source\repos\BookStore\TiendaServicios:/src:rw
+  tiendaservicios.api.seguridad:
+    build:
+      context: C:\Users\mmois\source\repos\BookStore\TiendaServicios
+      dockerfile: TiendaServicios.Api.Seguridad/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: TiendaServicios.Api.Seguridad
+      target: base
+    container_name: TiendaServicios.Api.Seguridad
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: tiendaserviciosapiseguridad:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/netcoreapp3.1/TiendaServicios.Api.Seguridad.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    networks:
+      microservicenet: {}
+    ports:
+    - published: 6108
+      target: 80
+    tty: true
+    volumes:
+    - C:\Users\mmois\source\repos\BookStore\TiendaServicios\TiendaServicios.Api.Seguridad:/app:rw
+    - C:\Users\mmois\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\mmois\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\mmois\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\mmois\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\mmois\source\repos\BookStore\TiendaServicios:/src:rw
+version: '3.4'

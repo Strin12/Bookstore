@@ -1,0 +1,66 @@
+networks:
+  microservicenet:
+    external: true
+    name: microservicenet
+services:
+  tiendaservicios.api.autor:
+    build:
+      context: C:\Users\mmois\source\repos\BookStore\TiendaServicios
+      dockerfile: TiendaServicios.Api.Autor/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: tiendaserviciosapiautor
+    networks:
+      microservicenet: {}
+    ports:
+    - published: 6104
+      target: 80
+  tiendaservicios.api.carritocompra:
+    build:
+      context: C:\Users\mmois\source\repos\BookStore\TiendaServicios
+      dockerfile: TiendaServicios.Api.CarritoCompra/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: tiendaserviciosapicarritocompra
+    networks:
+      microservicenet: {}
+    ports:
+    - published: 6105
+      target: 80
+  tiendaservicios.api.libreria:
+    build:
+      context: C:\Users\mmois\source\repos\BookStore\TiendaServicios
+      dockerfile: TiendaServicios.Api.Libreria/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: tiendaserviciosapilibreria
+    networks:
+      microservicenet: {}
+    ports:
+    - published: 6106
+      target: 80
+  tiendaservicios.api.login:
+    build:
+      context: C:\Users\mmois\source\repos\BookStore\TiendaServicios
+      dockerfile: TiendaServicios.Api.Login/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: tiendaserviciosapilogin
+    networks:
+      microservicenet: {}
+    ports:
+    - published: 6107
+      target: 80
+  tiendaservicios.api.seguridad:
+    build:
+      context: C:\Users\mmois\source\repos\BookStore\TiendaServicios
+      dockerfile: TiendaServicios.Api.Seguridad/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: tiendaserviciosapiseguridad
+    networks:
+      microservicenet: {}
+    ports:
+    - published: 6108
+      target: 80
+version: '3.4'
